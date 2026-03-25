@@ -1,0 +1,122 @@
+/* custom.css - Ultra-Soft Rose Gold & Pink Theme */
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', 'Segoe UI', sans-serif; /* Pakai font yang lebih bulat kalau ada */
+  /* Gradasi background lebih creamy dan mahal */
+  background: radial-gradient(circle at top right, #fff5f7, #fdfcfb 50%, #ffeef2 100%);
+  color: #6d5d62; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 50px 40px; /* Lebih lega atas bawah */
+  border-radius: 40px; /* Super rounded biar makin gemoy */
+  
+  /* Shadow berlapis (Layered Shadow) biar kelihatan super smooth */
+  box-shadow: 
+    0 10px 20px rgba(212, 143, 166, 0.05),
+    0 20px 40px rgba(212, 143, 166, 0.1);
+  
+  max-width: 450px;
+  width: 100%;
+  border: 2px solid #ffffff; /* Border putih tegas tapi tipis */
+  backdrop-filter: blur(15px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tambahan hiasan biar gak sepi (opsional tapi bikin cantik) */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 183, 178, 0.2);
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: 1.4rem;
+  /* Warna Rose Gold Soft */
+  background: linear-gradient(45deg, #d48fa6, #e7a397);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  color: #d48fa6;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  /* Garis gradasi lembut */
+  background: linear-gradient(to right, transparent, #f1dce3, transparent);
+  margin: 25px 0;
+}
+
+.card p {
+  margin: 12px 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* List Biodata jadi makin estetik */
+.card strong {
+  color: #d48fa6;
+  display: inline-block;
+  width: 120px;
+  text-align: left;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Tambahin titik dua otomatis yang rapi */
+.card strong::after {
+  content: ":";
+  position: absolute;
+  right: 15px;
+}
+
+small {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: rgba(212, 143, 166, 0.08); /* Highlight kecil untuk quote */
+  border-radius: 50px;
+  color: #b5a1a8;
+  display: inline-block;
+}
+
+footer {
+  margin-top: 35px;
+  font-size: 0.75rem;
+  color: #d48fa6;
+  letter-spacing: 1px;
+}
+
+/* Animasi masuk yang lebih 'bounce' */
+.card {
+  animation: floatingIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes floatingIn {
+  0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
