@@ -1,0 +1,204 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Hair Spa Premium",
+      "category": "Hair Care",
+      "price": 150000,
+      "rating": 4.8,
+      "image": "https://images.unsplash.com/photo-1695527081848-1e46c06e6458?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Siti" }
+    },
+    {
+      "id": 2,
+      "name": "Facial Brightening",
+      "category": "Face Care",
+      "price": 120000,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Rina" }
+    },
+    {
+      "id": 3,
+      "name": "Manicure Spa",
+      "category": "Nail Care",
+      "price": 80000,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1700760933910-d3c03aa18b65?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Jakarta" },
+      "staff": { "name": "Dewi" }
+    },
+    {
+      "id": 4,
+      "name": "Pedicure Treatment",
+      "category": "Nail Care",
+      "price": 90000,
+      "rating": 4.6,
+      "image": "https://images.unsplash.com/photo-1577117633143-a2437fb9bdda?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Bandung" },
+      "staff": { "name": "Maya" }
+    },
+    {
+      "id": 5,
+      "name": "Hair Coloring",
+      "category": "Hair Care",
+      "price": 200000,
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1707812343087-c9ff9e5abb43?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Medan" },
+      "staff": { "name": "Lina" }
+    },
+    {
+      "id": 6,
+      "name": "Hair Cut Stylish",
+      "category": "Hair Care",
+      "price": 70000,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Budi" }
+    },
+    {
+      "id": 7,
+      "name": "Facial Acne Care",
+      "category": "Face Care",
+      "price": 130000,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1647004692483-c5d942fe1137?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Jakarta" },
+      "staff": { "name": "Nina" }
+    },
+    {
+      "id": 8,
+      "name": "Makeup Party",
+      "category": "Makeup",
+      "price": 250000,
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1767027151400-fa6a3d905e7c?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Bandung" },
+      "staff": { "name": "Ayu" }
+    },
+    {
+      "id": 9,
+      "name": "Makeup Wedding",
+      "category": "Makeup",
+      "price": 500000,
+      "rating": 5.0,
+      "image": "https://images.unsplash.com/photo-1582576192532-06353147fcbf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Medan" },
+      "staff": { "name": "Sari" }
+    },
+    {
+      "id": 10,
+      "name": "Body Spa Relax",
+      "category": "Body Care",
+      "price": 180000,
+      "rating": 4.8,
+      "image": "https://plus.unsplash.com/premium_photo-1661682717118-b83a446c81d5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Putri" }
+    },
+    {
+      "id": 11,
+      "name": "Body Scrub Whitening",
+      "category": "Body Care",
+      "price": 160000,
+      "rating": 4.6,
+      "image": "https://images.unsplash.com/photo-1667803552102-00de1188d66f?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Jakarta" },
+      "staff": { "name": "Wati" }
+    },
+    {
+      "id": 12,
+      "name": "Eyelash Extension",
+      "category": "Eye Care",
+      "price": 140000,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Bandung" },
+      "staff": { "name": "Dina" }
+    },
+    {
+      "id": 13,
+      "name": "Eyebrow Shaping",
+      "category": "Eye Care",
+      "price": 60000,
+      "rating": 4.5,
+      "image": "https://plus.unsplash.com/premium_photo-1718626727207-854154e67324?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Medan" },
+      "staff": { "name": "Tari" }
+    },
+    {
+      "id": 14,
+      "name": "Hair Smoothing",
+      "category": "Hair Care",
+      "price": 300000,
+      "rating": 4.9,
+      "image": "https://plus.unsplash.com/premium_photo-1661717624211-02bbe60fd64f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Lilis" }
+    },
+    {
+      "id": 15,
+      "name": "Facial Anti Aging",
+      "category": "Face Care",
+      "price": 200000,
+      "rating": 4.8,
+      "image": "https://plus.unsplash.com/premium_photo-1663011276992-6e52adb20dd3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Jakarta" },
+      "staff": { "name": "Rosa" }
+    },
+    {
+      "id": 16,
+      "name": "Nail Art Design",
+      "category": "Nail Care",
+      "price": 100000,
+      "rating": 4.6,
+      "image": "https://plus.unsplash.com/premium_photo-1723460945050-25a6ea790e17?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Bandung" },
+      "staff": { "name": "Mira" }
+    },
+    {
+      "id": 17,
+      "name": "Hair Keratin",
+      "category": "Hair Care",
+      "price": 350000,
+      "rating": 4.9,
+      "image": "https://plus.unsplash.com/premium_photo-1679107289382-380e833ec157?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Medan" },
+      "staff": { "name": "Siska" }
+    },
+    {
+      "id": 18,
+      "name": "Body Massage",
+      "category": "Body Care",
+      "price": 170000,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Pekanbaru" },
+      "staff": { "name": "Indah" }
+    },
+    {
+      "id": 19,
+      "name": "Makeup Graduation",
+      "category": "Makeup",
+      "price": 220000,
+      "rating": 4.8,
+      "image": "https://plus.unsplash.com/premium_photo-1661771761352-bd446050d5fe?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Jakarta" },
+      "staff": { "name": "Novi" }
+    },
+    {
+      "id": 20,
+      "name": "Facial Deep Clean",
+      "category": "Face Care",
+      "price": 110000,
+      "rating": 4.6,
+      "image": "https://plus.unsplash.com/premium_photo-1716632012423-d4d0e2e63d57?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "location": { "city": "Bandung" },
+      "staff": { "name": "Rani" }
+    }
+  ]
+}
