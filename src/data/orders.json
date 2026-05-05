@@ -1,0 +1,138 @@
+[
+  {
+    "id": "#ORD-1234",
+    "customer": "Sarah Johnson",
+    "items": ["Cappuccino", "Croissant"],
+    "total": 12.5,
+    "time": "10:30 AM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1235",
+    "customer": "Mike Chen",
+    "items": ["Latte", "Blueberry Muffin"],
+    "total": 11.0,
+    "time": "10:45 AM",
+    "status": "In Progress"
+  },
+  {
+    "id": "#ORD-1236",
+    "customer": "Emma Wilson",
+    "items": ["Espresso", "Chocolate Cake"],
+    "total": 9.5,
+    "time": "10:50 AM",
+    "status": "Pending"
+  },
+  {
+    "id": "#ORD-1237",
+    "customer": "James Brown",
+    "items": ["Americano", "Bagel"],
+    "total": 8.0,
+    "time": "11:00 AM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1238",
+    "customer": "Lisa Anderson",
+    "items": ["Mocha", "Cookie"],
+    "total": 10.5,
+    "time": "11:15 AM",
+    "status": "Cancelled"
+  },
+  {
+    "id": "#ORD-1239",
+    "customer": "David Martinez",
+    "items": ["Flat White", "Sandwich"],
+    "total": 13.0,
+    "time": "11:20 AM",
+    "status": "In Progress"
+  },
+  {
+    "id": "#ORD-1240",
+    "customer": "Nina Putri",
+    "items": ["Caramel Latte", "Donut"],
+    "total": 14.0,
+    "time": "11:30 AM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1241",
+    "customer": "Rizky",
+    "items": ["Espresso"],
+    "total": 5.0,
+    "time": "11:35 AM",
+    "status": "Pending"
+  },
+  {
+    "id": "#ORD-1242",
+    "customer": "Andi Saputra",
+    "items": ["Americano", "Toast"],
+    "total": 9.0,
+    "time": "11:40 AM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1243",
+    "customer": "Siti Aisyah",
+    "items": ["Matcha Latte", "Cake"],
+    "total": 15.5,
+    "time": "11:50 AM",
+    "status": "In Progress"
+  },
+  {
+    "id": "#ORD-1244",
+    "customer": "Budi Santoso",
+    "items": ["Black Coffee"],
+    "total": 4.0,
+    "time": "12:00 PM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1245",
+    "customer": "Dewi Lestari",
+    "items": ["Latte", "Croissant"],
+    "total": 12.0,
+    "time": "12:05 PM",
+    "status": "Cancelled"
+  },
+  {
+    "id": "#ORD-1246",
+    "customer": "Fajar",
+    "items": ["Mocha"],
+    "total": 6.5,
+    "time": "12:10 PM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1247",
+    "customer": "Gilang",
+    "items": ["Cappuccino", "Sandwich"],
+    "total": 13.5,
+    "time": "12:20 PM",
+    "status": "In Progress"
+  },
+  {
+    "id": "#ORD-1248",
+    "customer": "Hana",
+    "items": ["Espresso", "Cookie"],
+    "total": 7.5,
+    "time": "12:30 PM",
+    "status": "Pending"
+  },
+  {
+    "id": "#ORD-1249",
+    "customer": "Indra",
+    "items": ["Flat White"],
+    "total": 6.0,
+    "time": "12:40 PM",
+    "status": "Completed"
+  },
+  {
+    "id": "#ORD-1250",
+    "customer": "Jasmine",
+    "items": ["Latte", "Cake"],
+    "total": 13.0,
+    "time": "12:50 PM",
+    "status": "In Progress"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "Diskon 10%", "status": "Aktif" },
+  { "id": 2, "name": "Promo Member Baru", "status": "Aktif" },
+  { "id": 3, "name": "Buy 1 Get 1", "status": "Selesai" },
+  { "id": 4, "name": "Diskon Weekend", "status": "Aktif" },
+  { "id": 5, "name": "Cashback 20%", "status": "Terjadwal" },
+  { "id": 6, "name": "Promo Valentine", "status": "Selesai" },
+  { "id": 7, "name": "Diskon VIP", "status": "Aktif" },
+  { "id": 8, "name": "Promo Akhir Bulan", "status": "Terjadwal" }
+]

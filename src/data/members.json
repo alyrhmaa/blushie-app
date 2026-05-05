@@ -1,0 +1,14 @@
+[
+  { "id": 1, "name": "Aliya", "tier": "Gold", "point": 1200 },
+  { "id": 2, "name": "Budi", "tier": "Silver", "point": 300 },
+  { "id": 3, "name": "Citra", "tier": "Gold", "point": 980 },
+  { "id": 4, "name": "Dimas", "tier": "Silver", "point": 150 },
+  { "id": 5, "name": "Eka", "tier": "Platinum", "point": 2000 },
+  { "id": 6, "name": "Farhan", "tier": "Silver", "point": 220 },
+  { "id": 7, "name": "Gita", "tier": "Platinum", "point": 1750 },
+  { "id": 8, "name": "Hadi", "tier": "Silver", "point": 400 },
+  { "id": 9, "name": "Intan", "tier": "Gold", "point": 1350 },
+  { "id": 10, "name": "Joko", "tier": "Silver", "point": 280 },
+  { "id": 11, "name": "Kiki", "tier": "Platinum", "point": 1600 },
+  { "id": 12, "name": "Lina", "tier": "Silver", "point": 190 }
+]

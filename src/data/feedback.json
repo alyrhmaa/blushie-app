@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "Aliya", "comment": "Kopi enak banget!", "rating": 5 },
+  { "id": 2, "name": "Budi", "comment": "Pelayanan cepat", "rating": 4 },
+  { "id": 3, "name": "Citra", "comment": "Tempat nyaman", "rating": 5 },
+  { "id": 4, "name": "Dimas", "comment": "Harga agak mahal", "rating": 3 },
+  { "id": 5, "name": "Eka", "comment": "Menu banyak pilihan", "rating": 5 },
+  { "id": 6, "name": "Farhan", "comment": "Pelayanan kurang ramah", "rating": 2 },
+  { "id": 7, "name": "Gita", "comment": "Suka banget sama latte nya", "rating": 5 },
+  { "id": 8, "name": "Hadi", "comment": "Tempat bersih", "rating": 4 },
+  { "id": 9, "name": "Intan", "comment": "Kurang manis kopinya", "rating": 3 },
+  { "id": 10, "name": "Joko", "comment": "Mantap!", "rating": 5 }
+]
