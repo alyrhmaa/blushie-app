@@ -1,52 +1,75 @@
-import { NavLink } from "react-router-dom";
-import { Coffee } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  LayoutDashboard,
+  Users,
+  ClipboardList,
+  Gift,
+  PieChart,
+  Megaphone,
+  Clock3,
+  MessageSquare,
+  BarChart3,
+  Coffee,
+} from "lucide-react";
 
 export default function Sidebar() {
-  const menu =
-    "block px-4 py-3 rounded-xl transition-all duration-200 text-sm";
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const menus = [
+    { icon: LayoutDashboard, label: "Dashboard", path: "/" },
+    { icon: Users, label: "Members", path: "/members" },
+    { icon: ClipboardList, label: "Orders", path: "/orders" },
+    { icon: Gift, label: "Loyalty", path: "/loyalty" },
+    { icon: PieChart, label: "Segmentation", path: "/segmentation" },
+    { icon: Megaphone, label: "Campaigns", path: "/campaigns" },
+    { icon: Clock3, label: "Queue", path: "/queue" },
+    { icon: MessageSquare, label: "Feedback", path: "/feedback" },
+    { icon: BarChart3, label: "Analytics", path: "/analytics" },
+  ];
 
   return (
-    <div className="w-64 bg-gradient-to-b from-[#4E342E] to-[#3E2723] text-[#FBE9E7] shadow-2xl min-h-screen p-5">
+    <div className="fixed left-0 top-0 h-screen w-[95px] bg-white border-r flex flex-col items-center py-6 z-50">
 
       {/* LOGO */}
-      <div className="flex items-center gap-3 mb-10">
-        <div className="bg-orange-500/20 p-2 rounded-xl">
-          <Coffee size={22} className="text-orange-300" />
-        </div>
-        <h2 className="text-lg font-semibold tracking-wide">
-          Papi Coffee
-        </h2>
+      <div className="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center mb-10">
+        <Coffee size={26} className="text-white" />
       </div>
 
       {/* MENU */}
-      <div className="space-y-2">
+      <div className="flex flex-col gap-5 flex-1">
+        {menus.map((item, i) => {
+          const Icon = item.icon;
+          const isActive = location.pathname === item.path;
 
-        {[
-          ["Dashboard", "/dashboard"],
-          ["Members", "/members"],
-          ["Orders", "/orders"],
-          ["Loyalty", "/loyalty"],
-          ["Segmentation", "/segmentation"],
-          ["Campaigns", "/campaigns"],
-          ["Queue", "/queue"],
-          ["Feedback", "/feedback"],
-          ["Analytics", "/analytics"],
-        ].map(([label, path]) => (
-          <NavLink
-            key={path}
-            to={path}
-            className={({ isActive }) =>
-              `${menu} ${
-                isActive
-                  ? "bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-md"
-                  : "hover:bg-white/10 text-[#FBE9E7]/80"
-              }`
-            }
-          >
-            {label}
-          </NavLink>
-        ))}
+          return (
+            <button
+              key={i}
+              onClick={() => navigate(item.path)}
+              className={`group relative w-12 h-12 rounded-2xl flex items-center justify-center transition
+                ${
+                  isActive
+                    ? "bg-[#EEF1FF] text-[#5B6CFF]"
+                    : "text-gray-400 hover:bg-gray-100 hover:text-[#5B6CFF]"
+                }`}
+            >
+              <Icon size={20} />
 
+              {/* tooltip */}
+              <div className="absolute left-16 opacity-0 group-hover:opacity-100 transition bg-black text-white text-xs px-3 py-1.5 rounded-lg pointer-events-none">
+                {item.label}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* PROFILE */}
+      <div className="mt-6">
+        <img
+          src="https://i.pravatar.cc/100?img=12"
+          className="w-12 h-12 rounded-2xl border shadow-md"
+        />
       </div>
     </div>
   );
