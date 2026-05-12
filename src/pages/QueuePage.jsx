@@ -53,142 +53,342 @@ export default function QueuePage() {
   ];
 
   const completed = [
-    { code: "Q-045", name: "Alex Thompson", time: "11:30 AM", dur: "4 min" },
-    { code: "Q-044", name: "Maria Garcia", time: "11:25 AM", dur: "3 min" },
-    { code: "Q-043", name: "John Smith", time: "11:20 AM", dur: "5 min" }
+    {
+      code: "Q-045",
+      name: "Alex Thompson",
+      time: "11:30 AM",
+      dur: "4 min"
+    },
+    {
+      code: "Q-044",
+      name: "Maria Garcia",
+      time: "11:25 AM",
+      dur: "3 min"
+    },
+    {
+      code: "Q-043",
+      name: "John Smith",
+      time: "11:20 AM",
+      dur: "5 min"
+    }
   ];
 
-  // ===== HITUNG =====
+  // ===== STATS =====
   const inQueue = queue.length;
-  const preparing = queue.filter(q => q.status.includes("Preparing")).length;
-  const ready = queue.filter(q => q.status === "Ready").length;
+
+  const preparing = queue.filter((q) =>
+    q.status.includes("Preparing")
+  ).length;
+
+  const ready = queue.filter(
+    (q) => q.status === "Ready"
+  ).length;
+
   const avgWait = "4.2 min";
 
-  const getStatusStyle = (status) => {
-    if (status.includes("Preparing")) return "bg-blue-100 text-blue-600";
-    if (status === "Waiting") return "bg-yellow-100 text-yellow-600";
-    if (status === "Ready") return "bg-green-100 text-green-600";
-    return "bg-gray-100";
+  const getStatusColor = (status) => {
+    if (status.includes("Preparing"))
+      return "text-blue-500";
+
+    if (status === "Waiting")
+      return "text-yellow-500";
+
+    if (status === "Ready")
+      return "text-green-500";
+
+    return "text-gray-400";
   };
 
   return (
-    <div className="p-6 space-y-8 bg-[#f5f1e8] min-h-screen">
+    <div className="min-h-screen bg-[#f5f6fa] p-6">
 
       {/* ===== HEADER ===== */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-start mb-8">
+
         <div>
-          <h1 className="text-3xl font-bold">Order Queue</h1>
-          <p className="text-gray-500">
+          <h1 className="text-5xl font-bold text-[#1f2937]">
+            Queue
+          </h1>
+
+          <p className="text-gray-400 text-xl mt-2">
             Real-time order tracking and management
           </p>
         </div>
 
-        <button className="bg-orange-500 text-white px-5 py-2 rounded-xl shadow">
+        <button className="bg-[#5B7CFF] text-white px-6 py-3 rounded-2xl shadow-sm hover:opacity-90 transition">
           View History
         </button>
+
       </div>
 
       {/* ===== STATS ===== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
 
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-blue-500">
-          <p className="text-gray-500 text-sm">In Queue</p>
-          <h2 className="text-2xl font-bold">{inQueue}</h2>
+        {/* CARD 1 */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <h3 className="text-2xl font-bold text-gray-800">
+            {inQueue}
+          </h3>
+
+          <p className="text-sm text-gray-400 mt-1">
+            In queue
+          </p>
+
+          <div className="mt-3 h-10">
+            <svg viewBox="0 0 100 30" className="w-full h-full">
+              <path
+                d="M0 15 Q15 2 30 15 T60 15 T100 18"
+                fill="none"
+                stroke="#5B7CFF"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-yellow-500">
-          <p className="text-gray-500 text-sm">Preparing</p>
-          <h2 className="text-2xl font-bold">{preparing}</h2>
+        {/* CARD 2 */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <h3 className="text-2xl font-bold text-gray-800">
+            {preparing}
+          </h3>
+
+          <p className="text-sm text-gray-400 mt-1">
+            Preparing
+          </p>
+
+          <div className="mt-3 h-10">
+            <svg viewBox="0 0 100 30" className="w-full h-full">
+              <path
+                d="M0 20 Q20 28 35 12 T70 15 T100 10"
+                fill="none"
+                stroke="#5B7CFF"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-green-500">
-          <p className="text-gray-500 text-sm">Ready</p>
-          <h2 className="text-2xl font-bold">{ready}</h2>
+        {/* CARD 3 */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <h3 className="text-2xl font-bold text-gray-800">
+            {ready}
+          </h3>
+
+          <p className="text-sm text-gray-400 mt-1">
+            Ready
+          </p>
+
+          <div className="mt-3 h-10">
+            <svg viewBox="0 0 100 30" className="w-full h-full">
+              <path
+                d="M0 15 Q20 5 35 15 T70 20 T100 8"
+                fill="none"
+                stroke="#5B7CFF"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-orange-500">
-          <p className="text-gray-500 text-sm">Avg Wait Time</p>
-          <h2 className="text-2xl font-bold">{avgWait}</h2>
+        {/* CARD 4 */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <h3 className="text-2xl font-bold text-gray-800">
+            {avgWait}
+          </h3>
+
+          <p className="text-sm text-gray-400 mt-1">
+            Avg wait time
+          </p>
+
+          <div className="mt-3 h-10">
+            <svg viewBox="0 0 100 30" className="w-full h-full">
+              <path
+                d="M0 10 Q15 25 30 10 T60 12 T100 20"
+                fill="none"
+                stroke="#FF6B6B"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
         </div>
 
       </div>
 
-      {/* ===== CURRENT QUEUE ===== */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Current Queue</h2>
+      {/* ===== MAIN SECTION ===== */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ===== CURRENT QUEUE ===== */}
+        <div className="bg-white rounded-2xl shadow-sm p-5">
 
-          {queue.map((q, i) => (
-            <div key={i} className="bg-white p-5 rounded-2xl shadow">
+          <div className="flex justify-between items-center mb-5">
 
-              {/* header */}
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold">{q.id}</h3>
-                <span className="text-sm text-gray-500">{q.code}</span>
-              </div>
+            <h2 className="font-semibold text-gray-800 text-lg">
+              Current Queue
+            </h2>
 
-              <p className="font-medium mt-1">{q.name}</p>
-
-              {/* status */}
-              <span className={`inline-block mt-2 px-3 py-1 rounded-full text-sm ${getStatusStyle(q.status)}`}>
-                {q.status}
-              </span>
-
-              {/* items */}
-              <div className="mt-3 text-sm">
-                {q.items.map((item, idx) => (
-                  <p key={idx}>{item}</p>
-                ))}
-              </div>
-
-              {/* wait */}
-              <p className="text-sm text-gray-500 mt-2">
-                Wait: {q.wait}
-              </p>
-
-              {/* button */}
-              <button className="mt-4 w-full bg-orange-500 text-white py-2 rounded-xl">
-                {q.status === "Waiting"
-                  ? "Start Preparing"
-                  : q.status.includes("Preparing")
-                  ? "Mark as Ready"
-                  : "Done"}
+            <div className="flex gap-3 text-sm text-gray-400">
+              <button>Day</button>
+              <button>Week</button>
+              <button className="text-gray-800 font-medium">
+                Month
               </button>
-
             </div>
-          ))}
 
-        </div>
-      </div>
+          </div>
 
-      {/* ===== COMPLETED ===== */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Completed Today</h2>
+          {/* HEADER */}
+          <div className="flex justify-between text-xs text-gray-400 border-b pb-3 mb-3 px-1">
+            <span>Customer</span>
+            <span>Status</span>
+          </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow space-y-4">
+          {/* ITEMS */}
+          <div className="space-y-5">
 
-          {completed.map((c, i) => (
-            <div key={i} className="flex justify-between items-center border-b pb-2 last:border-none">
-              
-              <div>
-                <p className="font-semibold">{c.code}</p>
-                <p className="text-sm text-gray-500">{c.name}</p>
+            {queue.map((q, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-between"
+              >
+
+                {/* LEFT */}
+                <div className="flex gap-3">
+
+                  <div className="w-12 h-12 rounded-xl bg-[#eef2ff] flex items-center justify-center text-[#5B7CFF] font-bold">
+                    {q.name.charAt(0)}
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-800">
+                      {q.name}
+                    </h3>
+
+                    <p className="text-xs text-gray-400 mt-1">
+                      {q.code} • {q.items.join(", ")}
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* RIGHT */}
+                <div className="text-right">
+                  <p className="font-semibold text-sm text-gray-800">
+                    {q.wait}
+                  </p>
+
+                  <p
+                    className={`text-xs mt-1 ${getStatusColor(
+                      q.status
+                    )}`}
+                  >
+                    {q.status}
+                  </p>
+                </div>
+
               </div>
+            ))}
 
-              <div className="text-right text-sm text-gray-500">
-                <p>{c.time}</p>
-                <p>{c.dur}</p>
-              </div>
+          </div>
 
-            </div>
-          ))}
+          {/* BUTTON */}
+          <div className="mt-6 flex items-center gap-4">
 
-          <div className="text-center text-gray-400 pt-2">
-            45 orders completed
+            <button className="bg-[#5B7CFF] text-white text-sm px-5 py-2 rounded-xl">
+              All Queue
+            </button>
+
+            <p className="text-sm text-gray-400">
+              {queue.length} Active Orders
+            </p>
+
           </div>
 
         </div>
+
+        {/* ===== COMPLETED ===== */}
+        <div className="bg-white rounded-2xl shadow-sm p-5">
+
+          <div className="flex justify-between items-center mb-5">
+
+            <h2 className="font-semibold text-gray-800 text-lg">
+              Completed Today
+            </h2>
+
+            <div className="flex gap-3 text-sm text-gray-400">
+              <button>Day</button>
+              <button>Week</button>
+              <button className="text-gray-800 font-medium">
+                Month
+              </button>
+            </div>
+
+          </div>
+
+          {/* HEADER */}
+          <div className="flex justify-between text-xs text-gray-400 border-b pb-3 mb-3 px-1">
+            <span>Order</span>
+            <span>Duration</span>
+          </div>
+
+          {/* ITEMS */}
+          <div className="space-y-5">
+
+            {completed.map((c, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-between"
+              >
+
+                {/* LEFT */}
+                <div className="flex gap-3">
+
+                  <div className="w-12 h-12 rounded-xl bg-[#eef2ff] flex items-center justify-center text-[#5B7CFF] font-bold">
+                    ✓
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-800">
+                      {c.code}
+                    </h3>
+
+                    <p className="text-xs text-gray-400 mt-1">
+                      {c.name}
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* RIGHT */}
+                <div className="text-right">
+                  <p className="font-semibold text-sm text-gray-800">
+                    {c.dur}
+                  </p>
+
+                  <p className="text-xs mt-1 text-green-500">
+                    {c.time}
+                  </p>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+          {/* BUTTON */}
+          <div className="mt-6 flex items-center gap-4">
+
+            <button className="bg-[#5B7CFF] text-white text-sm px-5 py-2 rounded-xl">
+              All History
+            </button>
+
+            <p className="text-sm text-gray-400">
+              45 Orders Completed
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
