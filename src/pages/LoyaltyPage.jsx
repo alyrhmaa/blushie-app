@@ -1,11 +1,9 @@
 import members from "../data/members.json";
 
 export default function LoyaltyPage() {
-
   // ===== STATS =====
   const totalPoints = members.reduce((acc, m) => acc + m.point, 0);
   const activeMembers = members.length;
-
   const rewardsClaimed = 1234; // dummy
   const redemptionRate = "68%"; // dummy
 
@@ -14,137 +12,119 @@ export default function LoyaltyPage() {
     members.filter((m) => m.tier === tier).length;
 
   return (
-    <div className="p-6 space-y-8 bg-[#f5f1e8] min-h-screen">
-
+    <div className="p-8 bg-[#FBFCFE] min-h-screen font-sans text-[#1A1D1F]">
+      
       {/* ===== HEADER ===== */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold">Loyalty Program</h1>
-          <p className="text-gray-500">
-            Manage rewards and member tiers
-          </p>
+          <h1 className="text-2xl font-bold tracking-tight">Loyalty Program</h1>
+          <p className="text-gray-400 text-sm">Manage rewards and member tiers for Papi Coffee</p>
         </div>
-
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-xl shadow">
+        <button className="bg-[#6F4FF2] hover:bg-[#5b3fd1] text-white px-6 py-2.5 rounded-xl text-sm font-semibold shadow-sm transition-all">
           + Create Reward
         </button>
       </div>
 
-      {/* ===== STATS ===== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* ===== STATS SECTION (Style Figma: Income Details) ===== */}
+      <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 overflow-hidden mb-10">
+        <div className="p-6 flex justify-between items-center border-b border-gray-50">
+          <h3 className="font-bold text-lg">Program Insights</h3>
+          <div className="flex bg-gray-50 p-1 rounded-xl">
+            <button className="px-4 py-1.5 bg-white shadow-sm rounded-lg text-xs font-bold">Day</button>
+            <button className="px-4 py-1.5 text-gray-400 text-xs font-bold">Week</button>
+            <button className="px-4 py-1.5 text-gray-400 text-xs font-bold">Month</button>
+          </div>
+        </div>
+        
+        <div className="p-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl font-bold text-[#1A1D1F]">{totalPoints.toLocaleString()}</h2>
+            <p className="text-gray-400 text-xs mt-1 uppercase tracking-wider font-semibold">Total Points Issued</p>
+          </div>
+          <div className="text-center md:text-left border-l border-gray-100 pl-4">
+            <h2 className="text-3xl font-bold text-[#6F4FF2]">{rewardsClaimed}</h2>
+            <p className="text-gray-400 text-xs mt-1 uppercase tracking-wider font-semibold">Rewards Claimed</p>
+          </div>
+          <div className="text-center md:text-left border-l border-gray-100 pl-4">
+            <h2 className="text-3xl font-bold text-[#00B074]">{activeMembers}</h2>
+            <p className="text-gray-400 text-xs mt-1 uppercase tracking-wider font-semibold">Active Members</p>
+          </div>
+          <div className="text-center md:text-left border-l border-gray-100 pl-4">
+            <h2 className="text-3xl font-bold text-[#FF92AE]">{redemptionRate}</h2>
+            <p className="text-gray-400 text-xs mt-1 uppercase tracking-wider font-semibold">Redemption Rate</p>
+          </div>
+        </div>
+      </div>
 
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-blue-500">
-          <p className="text-gray-500 text-sm">Total Points Issued</p>
-          <h2 className="text-2xl font-bold">
-            {totalPoints.toLocaleString()}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* ===== MEMBERSHIP TIERS (Vertical List Style) ===== */}
+        <div className="lg:col-span-1 space-y-6">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+            Membership Tiers
+            <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-md">Live</span>
           </h2>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-green-500">
-          <p className="text-gray-500 text-sm">Rewards Claimed</p>
-          <h2 className="text-2xl font-bold">{rewardsClaimed}</h2>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-purple-500">
-          <p className="text-gray-500 text-sm">Active Members</p>
-          <h2 className="text-2xl font-bold">{activeMembers}</h2>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl shadow border-l-4 border-orange-500">
-          <p className="text-gray-500 text-sm">Redemption Rate</p>
-          <h2 className="text-2xl font-bold">{redemptionRate}</h2>
-        </div>
-
-      </div>
-
-      {/* ===== MEMBERSHIP TIERS ===== */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Membership Tiers</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {/* Silver */}
-          <div className="bg-white p-5 rounded-2xl shadow hover:scale-105 transition">
-            <h3 className="font-bold text-lg">Silver</h3>
-            <p className="text-sm text-gray-500 mb-2">0+ points</p>
-            <p className="text-sm mb-3">{countTier("Silver")} members</p>
-
-            <ul className="text-sm space-y-1">
-              <li>✓ Earn 1 point per $1</li>
-              <li>✓ Monthly promo access</li>
-            </ul>
-          </div>
-
-          {/* Gold */}
-          <div className="bg-white p-5 rounded-2xl shadow border-2 border-yellow-400 hover:scale-105 transition">
-            <h3 className="font-bold text-lg">Gold</h3>
-            <p className="text-sm text-gray-500 mb-2">1000+ points</p>
-            <p className="text-sm mb-3">{countTier("Gold")} members</p>
-
-            <ul className="text-sm space-y-1">
-              <li>✓ Earn 2 points per $1</li>
-              <li>✓ Weekly free drink</li>
-              <li>✓ Priority support</li>
-            </ul>
-          </div>
-
-          {/* Platinum */}
-          <div className="bg-white p-5 rounded-2xl shadow border-2 border-gray-800 hover:scale-105 transition">
-            <h3 className="font-bold text-lg">Platinum</h3>
-            <p className="text-sm text-gray-500 mb-2">1500+ points</p>
-            <p className="text-sm mb-3">{countTier("Platinum")} members</p>
-
-            <ul className="text-sm space-y-1">
-              <li>✓ Earn 3 points per $1</li>
-              <li>✓ Daily free drink</li>
-              <li>✓ Exclusive events</li>
-              <li>✓ VIP perks</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ===== REWARDS ===== */}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Available Rewards</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+          
           {[
-            { icon: "☕", name: "Free Coffee", pts: 100, claimed: 234 },
-            { icon: "🥐", name: "Free Pastry", pts: 75, claimed: 189 },
-            { icon: "🎫", name: "20% Discount", pts: 150, claimed: 156 },
-            { icon: "🍰", name: "Free Dessert", pts: 125, claimed: 98 },
-            { icon: "🎂", name: "Birthday Special", pts: 200, claimed: 67 },
-            { icon: "⭐", name: "Double Points Day", pts: 250, claimed: 45 }
-          ].map((r, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-2xl shadow flex justify-between items-center hover:shadow-lg transition"
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-3xl">{r.icon}</span>
-                <div>
-                  <p className="font-semibold">{r.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {r.pts} pts
-                  </p>
-                  <p className="text-xs text-gray-400">
-                    Claimed: {r.claimed} times
-                  </p>
+            { name: "Silver", color: "bg-gray-400", pts: "0+", count: countTier("Silver"), perks: "1 pt/$1 • Monthly promo" },
+            { name: "Gold", color: "bg-[#FFB039]", pts: "1000+", count: countTier("Gold"), perks: "2 pts/$1 • Weekly drink" },
+            { name: "Platinum", color: "bg-[#6F4FF2]", pts: "1500+", count: countTier("Platinum"), perks: "3 pts/$1 • VIP Perks" }
+          ].map((t, idx) => (
+            <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex justify-between items-start mb-3">
+                <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-gray-200`}>
+                  {t.name[0]}
                 </div>
+                <span className="text-[10px] font-bold text-gray-400 uppercase">{t.pts} PTS</span>
               </div>
-
-              <button className="text-orange-500 text-sm font-semibold hover:underline">
-                Edit
-              </button>
+              <h3 className="font-bold text-lg">{t.name}</h3>
+              <p className="text-blue-600 text-xs font-bold mb-2">{t.count} Members Joined</p>
+              <p className="text-gray-400 text-xs leading-relaxed">{t.perks}</p>
             </div>
           ))}
-
         </div>
-      </div>
 
+        {/* ===== AVAILABLE REWARDS (Grid Style like Income Breakdown) ===== */}
+        <div className="lg:col-span-2">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-bold">Available Rewards</h2>
+            <button className="text-xs font-bold text-[#6F4FF2] hover:underline">View All Gallery</button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { icon: "☕", name: "Free Coffee", pts: 100, claimed: 234, color: "bg-orange-50 text-orange-600" },
+              { icon: "🥐", name: "Free Pastry", pts: 75, claimed: 189, color: "bg-green-50 text-green-600" },
+              { icon: "🎫", name: "20% Discount", pts: 150, claimed: 156, color: "bg-blue-50 text-blue-600" },
+              { icon: "🍰", name: "Free Dessert", pts: 125, claimed: 98, color: "bg-purple-50 text-purple-600" },
+              { icon: "🎂", name: "Birthday Special", pts: 200, claimed: 67, color: "bg-pink-50 text-pink-600" },
+              { icon: "⭐", name: "Double Points Day", pts: 250, claimed: 45, color: "bg-yellow-50 text-yellow-600" }
+            ].map((r, i) => (
+              <div key={i} className="bg-white p-5 rounded-2xl border border-gray-50 shadow-sm flex items-center justify-between group hover:border-[#6F4FF2]/30 transition-all">
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-xl ${r.color} flex items-center justify-center text-2xl`}>
+                    {r.icon}
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm text-[#1A1D1F]">{r.name}</p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-xs font-bold text-gray-500">{r.pts} pts</span>
+                      <span className="text-[10px] text-gray-300">•</span>
+                      <span className="text-[10px] text-gray-400">{r.claimed} times claimed</span>
+                    </div>
+                  </div>
+                </div>
+                <button className="opacity-0 group-hover:opacity-100 p-2 hover:bg-gray-50 rounded-lg transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
