@@ -11,9 +11,10 @@ const Orders = lazy(() => import("./pages/OrdersPage"));
 const Loyalty = lazy(() => import("./pages/LoyaltyPage"));
 const Segmentation = lazy(() => import("./pages/SegmentationPage"));
 const Campaigns = lazy(() => import("./pages/CampaignsPage"));
-const OrderDetailPage = lazy(() => import("./pages/OrderDetailPage"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Products = lazy(() => import("./pages/Products"));
+const Customers = lazy(() => import("./pages/Customers"));
+const CustomerDetail = lazy(() => import("./pages/CustomerDetail"));
 const Queue = lazy(() => import("./pages/QueuePage"));
 const Feedback = lazy(() => import("./pages/FeedbackPage"));
 const Analytics = lazy(() => import("./pages/AnalyticsPage"));
@@ -38,7 +39,8 @@ export default function App() {
   <Route path="/dashboard" element={<Dashboard />} />
   <Route path="/members" element={<Members />} />
   <Route path="/orders" element={<Orders />} />
-  <Route path="/orders/:id" element={<OrderDetailPage />} />
+  <Route path="/customers" element={<Customers />} />
+  <Route path="/customers/:id" element={<CustomerDetail />} />
 
 
   <Route path="/products" element={<Products />} />

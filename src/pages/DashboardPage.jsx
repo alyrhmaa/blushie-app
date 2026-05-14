@@ -110,7 +110,7 @@ export default function DashboardPage() {
           </h1>
 
           <p className="text-gray-400 mt-1">
-            Here's what's happening today
+            Start your day with a smile
           </p>
         </div>
 
