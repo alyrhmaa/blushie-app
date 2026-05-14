@@ -10,6 +10,7 @@ import {
   MessageSquare,
   BarChart3,
   Coffee,
+  Package,
 } from "lucide-react";
 
 export default function Sidebar() {
@@ -17,16 +18,19 @@ export default function Sidebar() {
   const location = useLocation();
 
   const menus = [
-    { icon: LayoutDashboard, label: "Dashboard", path: "/" },
-    { icon: Users, label: "Members", path: "/members" },
-    { icon: ClipboardList, label: "Orders", path: "/orders" },
-    { icon: Gift, label: "Loyalty", path: "/loyalty" },
-    { icon: PieChart, label: "Segmentation", path: "/segmentation" },
-    { icon: Megaphone, label: "Campaigns", path: "/campaigns" },
-    { icon: Clock3, label: "Queue", path: "/queue" },
-    { icon: MessageSquare, label: "Feedback", path: "/feedback" },
-    { icon: BarChart3, label: "Analytics", path: "/analytics" },
-  ];
+  { icon: LayoutDashboard, label: "Dashboard", path: "/" },
+  { icon: Users, label: "Members", path: "/members" },
+  { icon: ClipboardList, label: "Orders", path: "/orders" },
+
+  { icon: Package, label: "Products", path: "/products" },
+
+  { icon: Gift, label: "Loyalty", path: "/loyalty" },
+  { icon: PieChart, label: "Segmentation", path: "/segmentation" },
+  { icon: Megaphone, label: "Campaigns", path: "/campaigns" },
+  { icon: Clock3, label: "Queue", path: "/queue" },
+  { icon: MessageSquare, label: "Feedback", path: "/feedback" },
+  { icon: BarChart3, label: "Analytics", path: "/analytics" },
+];
 
   return (
     <div className="fixed left-0 top-0 h-screen w-[95px] bg-white border-r flex flex-col items-center py-6 z-50">

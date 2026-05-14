@@ -11,6 +11,9 @@ const Orders = lazy(() => import("./pages/OrdersPage"));
 const Loyalty = lazy(() => import("./pages/LoyaltyPage"));
 const Segmentation = lazy(() => import("./pages/SegmentationPage"));
 const Campaigns = lazy(() => import("./pages/CampaignsPage"));
+const OrderDetailPage = lazy(() => import("./pages/OrderDetailPage"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const Products = lazy(() => import("./pages/Products"));
 const Queue = lazy(() => import("./pages/QueuePage"));
 const Feedback = lazy(() => import("./pages/FeedbackPage"));
 const Analytics = lazy(() => import("./pages/AnalyticsPage"));
@@ -24,24 +27,31 @@ export default function App() {
         {/* 🔥 REDIRECT ROOT */}
         <Route path="/" element={<Navigate to="/login" />} />
 
-        {/* 🔐 AUTH LAYOUT */}
-        <Route element={<AuthLayout />}>
-          <Route path="/login" element={<Login />} />
-        </Route>
+      {/* AUTH LAYOUT */}
+<Route element={<AuthLayout />}>
+  <Route path="/login" element={<Login />} />
+</Route>
 
-        {/* 🖥️ MAIN LAYOUT */}
-        <Route element={<MainLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/members" element={<Members />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/loyalty" element={<Loyalty />} />
-          <Route path="/segmentation" element={<Segmentation />} />
-          <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/queue" element={<Queue />} />
-          <Route path="/feedback" element={<Feedback />} />
-          <Route path="/analytics" element={<Analytics />} />
-        </Route>
+{/* MAIN LAYOUT */}
+<Route element={<MainLayout />}>
 
+  <Route path="/dashboard" element={<Dashboard />} />
+  <Route path="/members" element={<Members />} />
+  <Route path="/orders" element={<Orders />} />
+  <Route path="/orders/:id" element={<OrderDetailPage />} />
+
+
+  <Route path="/products" element={<Products />} />
+  <Route path="/products/:id" element={<ProductDetail />} />
+
+  <Route path="/loyalty" element={<Loyalty />} />
+  <Route path="/segmentation" element={<Segmentation />} />
+  <Route path="/campaigns" element={<Campaigns />} />
+  <Route path="/queue" element={<Queue />} />
+  <Route path="/feedback" element={<Feedback />} />
+  <Route path="/analytics" element={<Analytics />} />
+
+</Route>
         {/* ❗ FALLBACK (ANTI ERROR URL) */}
         <Route path="*" element={<Navigate to="/login" />} />
 
