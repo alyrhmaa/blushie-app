@@ -1,7 +1,11 @@
+// src/pages/ProductDetail.jsx
+
 import { useParams } from "react-router-dom"
 import data from "../data/Product.json"
+import Card from "../components/Card"
 
 export default function ProductDetail() {
+
   const { id } = useParams()
 
   const product = data.product.find(
@@ -19,7 +23,7 @@ export default function ProductDetail() {
   return (
     <div className="p-6 flex justify-center">
 
-      <div className="bg-white rounded-xl shadow-lg w-[350px] p-5">
+      <Card className="w-[350px] p-5">
 
         <img
           src={product.thumbnail}
@@ -43,7 +47,7 @@ export default function ProductDetail() {
           Harga: Rp {product.price}
         </p>
 
-      </div>
+      </Card>
     </div>
   )
 }

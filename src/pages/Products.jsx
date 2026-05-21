@@ -1,5 +1,8 @@
+// src/pages/Products.jsx
+
 import { Link } from "react-router-dom"
 import data from "../data/Product.json"
+import SearchInput from "../components/SearchInput"
 
 export default function Products() {
   return (
@@ -20,7 +23,7 @@ export default function Products() {
             </p>
           </div>
 
-          {/* DOT BUTTON */}
+          {/* DOT BUTTON MANUAL */}
           <button className="bg-gray-100 w-12 h-12 rounded-xl text-gray-400 text-2xl">
             ...
           </button>
@@ -28,10 +31,8 @@ export default function Products() {
         </div>
 
         {/* SEARCH */}
-        <input
-          type="text"
+        <SearchInput
           placeholder="Cari produk..."
-          className="w-full border rounded-lg px-4 py-2 mb-5"
         />
 
         {/* HEADER */}
