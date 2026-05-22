@@ -4,6 +4,7 @@ import members from "../data/members.json";
 
 import Button from "../components/Button";
 import Card from "../components/Card";
+import Badge from "../components/Badge";
 
 export default function LoyaltyPage() {
 
@@ -122,9 +123,11 @@ export default function LoyaltyPage() {
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             Membership Tiers
 
-            <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-md">
+            {/* BADGE COMPONENT */}
+            <Badge className="bg-blue-50 text-blue-600">
               Live
-            </span>
+            </Badge>
+
           </h2>
 
           {[
@@ -162,9 +165,10 @@ export default function LoyaltyPage() {
                   {t.name[0]}
                 </div>
 
-                <span className="text-[10px] font-bold text-gray-400 uppercase">
+                {/* BADGE COMPONENT */}
+                <Badge className="bg-gray-100 text-gray-500">
                   {t.pts} PTS
-                </span>
+                </Badge>
 
               </div>
 
@@ -172,11 +176,14 @@ export default function LoyaltyPage() {
                 {t.name}
               </h3>
 
-              <p className="text-blue-600 text-xs font-bold mb-2">
-                {t.count} Members Joined
-              </p>
+              {/* BADGE COMPONENT */}
+              <div className="mt-2">
+                <Badge className="bg-purple-100 text-purple-600">
+                  {t.count} Members Joined
+                </Badge>
+              </div>
 
-              <p className="text-gray-400 text-xs leading-relaxed">
+              <p className="text-gray-400 text-xs leading-relaxed mt-3">
                 {t.perks}
               </p>
 
@@ -237,19 +244,17 @@ export default function LoyaltyPage() {
                       {r.name}
                     </p>
 
-                    <div className="flex items-center gap-2 mt-0.5">
+                    <div className="flex items-center gap-2 mt-2">
 
-                      <span className="text-xs font-bold text-gray-500">
+                      {/* BADGE COMPONENT */}
+                      <Badge className="bg-orange-100 text-orange-600">
                         {r.pts} pts
-                      </span>
+                      </Badge>
 
-                      <span className="text-[10px] text-gray-300">
-                        •
-                      </span>
-
-                      <span className="text-[10px] text-gray-400">
-                        {r.claimed} times claimed
-                      </span>
+                      {/* BADGE COMPONENT */}
+                      <Badge className="bg-gray-100 text-gray-500">
+                        {r.claimed} claimed
+                      </Badge>
 
                     </div>
 

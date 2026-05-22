@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import orders from "../data/orders.json";
 
+import Loading from "../components/Loading";
+
 export default function OrdersPage() {
+
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    // simulasi loading data
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+  }, []);
 
   const filteredOrders = orders.filter(
     (o) =>
@@ -26,6 +40,7 @@ export default function OrdersPage() {
     .reduce((acc, curr) => acc + curr.total, 0);
 
   const getStatusStyle = (status) => {
+
     if (status === "Completed")
       return "bg-green-100 text-green-700";
 
@@ -40,6 +55,15 @@ export default function OrdersPage() {
 
     return "bg-gray-100 text-gray-600";
   };
+
+  // LOADING COMPONENT
+  if (loading) {
+    return (
+      <div className="p-6">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 space-y-6 bg-[#F9FAFB] min-h-screen">
@@ -176,6 +200,7 @@ export default function OrdersPage() {
                 </p>
 
                 <div className="space-y-2">
+
                   {o.items.slice(0, 3).map((item, i) => (
                     <div
                       key={i}
@@ -184,6 +209,7 @@ export default function OrdersPage() {
                       • {item}
                     </div>
                   ))}
+
                 </div>
 
               </div>

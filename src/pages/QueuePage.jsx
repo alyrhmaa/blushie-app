@@ -1,3 +1,7 @@
+// src/pages/QueuePage.jsx
+
+import QueueCard from "../components/QueueCard";
+
 export default function QueuePage() {
 
   // ===== DUMMY DATA =====
@@ -87,6 +91,7 @@ export default function QueuePage() {
   const avgWait = "4.2 min";
 
   const getStatusColor = (status) => {
+
     if (status.includes("Preparing"))
       return "text-blue-500";
 
@@ -106,6 +111,7 @@ export default function QueuePage() {
       <div className="flex justify-between items-start mb-8">
 
         <div>
+
           <h1 className="text-5xl font-bold text-[#1f2937]">
             Queue
           </h1>
@@ -113,6 +119,7 @@ export default function QueuePage() {
           <p className="text-gray-400 text-xl mt-2">
             Real-time order tracking and management
           </p>
+
         </div>
 
         <button className="bg-[#5B7CFF] text-white px-6 py-3 rounded-2xl shadow-sm hover:opacity-90 transition">
@@ -126,6 +133,7 @@ export default function QueuePage() {
 
         {/* CARD 1 */}
         <div className="bg-white rounded-2xl p-5 shadow-sm">
+
           <h3 className="text-2xl font-bold text-gray-800">
             {inQueue}
           </h3>
@@ -135,6 +143,7 @@ export default function QueuePage() {
           </p>
 
           <div className="mt-3 h-10">
+
             <svg viewBox="0 0 100 30" className="w-full h-full">
               <path
                 d="M0 15 Q15 2 30 15 T60 15 T100 18"
@@ -143,11 +152,14 @@ export default function QueuePage() {
                 strokeWidth="2"
               />
             </svg>
+
           </div>
+
         </div>
 
         {/* CARD 2 */}
         <div className="bg-white rounded-2xl p-5 shadow-sm">
+
           <h3 className="text-2xl font-bold text-gray-800">
             {preparing}
           </h3>
@@ -157,6 +169,7 @@ export default function QueuePage() {
           </p>
 
           <div className="mt-3 h-10">
+
             <svg viewBox="0 0 100 30" className="w-full h-full">
               <path
                 d="M0 20 Q20 28 35 12 T70 15 T100 10"
@@ -165,11 +178,14 @@ export default function QueuePage() {
                 strokeWidth="2"
               />
             </svg>
+
           </div>
+
         </div>
 
         {/* CARD 3 */}
         <div className="bg-white rounded-2xl p-5 shadow-sm">
+
           <h3 className="text-2xl font-bold text-gray-800">
             {ready}
           </h3>
@@ -179,6 +195,7 @@ export default function QueuePage() {
           </p>
 
           <div className="mt-3 h-10">
+
             <svg viewBox="0 0 100 30" className="w-full h-full">
               <path
                 d="M0 15 Q20 5 35 15 T70 20 T100 8"
@@ -187,11 +204,14 @@ export default function QueuePage() {
                 strokeWidth="2"
               />
             </svg>
+
           </div>
+
         </div>
 
         {/* CARD 4 */}
         <div className="bg-white rounded-2xl p-5 shadow-sm">
+
           <h3 className="text-2xl font-bold text-gray-800">
             {avgWait}
           </h3>
@@ -201,6 +221,7 @@ export default function QueuePage() {
           </p>
 
           <div className="mt-3 h-10">
+
             <svg viewBox="0 0 100 30" className="w-full h-full">
               <path
                 d="M0 10 Q15 25 30 10 T60 12 T100 20"
@@ -209,7 +230,9 @@ export default function QueuePage() {
                 strokeWidth="2"
               />
             </svg>
+
           </div>
+
         </div>
 
       </div>
@@ -227,65 +250,37 @@ export default function QueuePage() {
             </h2>
 
             <div className="flex gap-3 text-sm text-gray-400">
+
               <button>Day</button>
+
               <button>Week</button>
+
               <button className="text-gray-800 font-medium">
                 Month
               </button>
+
             </div>
 
           </div>
 
           {/* HEADER */}
           <div className="flex justify-between text-xs text-gray-400 border-b pb-3 mb-3 px-1">
+
             <span>Customer</span>
+
             <span>Status</span>
+
           </div>
 
           {/* ITEMS */}
           <div className="space-y-5">
 
             {queue.map((q, i) => (
-              <div
+              <QueueCard
                 key={i}
-                className="flex items-center justify-between"
-              >
-
-                {/* LEFT */}
-                <div className="flex gap-3">
-
-                  <div className="w-12 h-12 rounded-xl bg-[#eef2ff] flex items-center justify-center text-[#5B7CFF] font-bold">
-                    {q.name.charAt(0)}
-                  </div>
-
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-800">
-                      {q.name}
-                    </h3>
-
-                    <p className="text-xs text-gray-400 mt-1">
-                      {q.code} • {q.items.join(", ")}
-                    </p>
-                  </div>
-
-                </div>
-
-                {/* RIGHT */}
-                <div className="text-right">
-                  <p className="font-semibold text-sm text-gray-800">
-                    {q.wait}
-                  </p>
-
-                  <p
-                    className={`text-xs mt-1 ${getStatusColor(
-                      q.status
-                    )}`}
-                  >
-                    {q.status}
-                  </p>
-                </div>
-
-              </div>
+                q={q}
+                getStatusColor={getStatusColor}
+              />
             ))}
 
           </div>
@@ -315,19 +310,26 @@ export default function QueuePage() {
             </h2>
 
             <div className="flex gap-3 text-sm text-gray-400">
+
               <button>Day</button>
+
               <button>Week</button>
+
               <button className="text-gray-800 font-medium">
                 Month
               </button>
+
             </div>
 
           </div>
 
           {/* HEADER */}
           <div className="flex justify-between text-xs text-gray-400 border-b pb-3 mb-3 px-1">
+
             <span>Order</span>
+
             <span>Duration</span>
+
           </div>
 
           {/* ITEMS */}
@@ -347,6 +349,7 @@ export default function QueuePage() {
                   </div>
 
                   <div>
+
                     <h3 className="text-sm font-semibold text-gray-800">
                       {c.code}
                     </h3>
@@ -354,12 +357,14 @@ export default function QueuePage() {
                     <p className="text-xs text-gray-400 mt-1">
                       {c.name}
                     </p>
+
                   </div>
 
                 </div>
 
                 {/* RIGHT */}
                 <div className="text-right">
+
                   <p className="font-semibold text-sm text-gray-800">
                     {c.dur}
                   </p>
@@ -367,6 +372,7 @@ export default function QueuePage() {
                   <p className="text-xs mt-1 text-green-500">
                     {c.time}
                   </p>
+
                 </div>
 
               </div>

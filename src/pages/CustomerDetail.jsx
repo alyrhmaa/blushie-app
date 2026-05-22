@@ -1,7 +1,14 @@
 import { useParams } from "react-router-dom";
+
 import data from "../data/Customers.json";
 
+import Container from "../components/Container";
+import Card from "../components/Card";
+import Avatar from "../components/Avatar";
+import LoyaltyBadge from "../components/LoyaltyBadge";
+
 export default function CustomerDetail() {
+
   const { id } = useParams();
 
   const customer = data.customers.find(
@@ -9,22 +16,70 @@ export default function CustomerDetail() {
   );
 
   if (!customer) {
-    return <div className="p-5">Customer tidak ditemukan</div>;
+    return (
+      <Container className="p-5">
+        Customer tidak ditemukan
+      </Container>
+    );
   }
 
   return (
-    <div className="p-6">
-      <div className="bg-white rounded-2xl shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-4">
-          Detail Customer
-        </h1>
+    <Container className="p-6 bg-[#F9FAFB] min-h-screen">
 
-        <p>ID: {customer.customer_id}</p>
-        <p>Name: {customer.customer_name}</p>
-        <p>Email: {customer.email}</p>
-        <p>Phone: {customer.phone}</p>
-        <p>Loyalty: {customer.loyalty}</p>
-      </div>
-    </div>
+      <Card className="p-6">
+
+        <div className="flex items-center gap-4 mb-6">
+
+          <Avatar
+            name={customer.customer_name}
+            className="w-14 h-14 text-lg"
+          />
+
+          <div>
+
+            <h1 className="text-2xl font-bold">
+              {customer.customer_name}
+            </h1>
+
+            <p className="text-gray-400 text-sm">
+              Customer ID: {customer.customer_id}
+            </p>
+
+          </div>
+        </div>
+
+        <div className="space-y-2 text-sm">
+
+          <p>
+            <span className="font-semibold">
+              Email:
+            </span>{" "}
+            {customer.email}
+          </p>
+
+          <p>
+            <span className="font-semibold">
+              Phone:
+            </span>{" "}
+            {customer.phone}
+          </p>
+
+          <div className="flex items-center gap-2">
+
+            <span className="font-semibold text-sm">
+              Loyalty:
+            </span>
+
+           <LoyaltyBadge
+            tier={customer.loyalty}
+          />
+
+          </div>
+
+        </div>
+
+      </Card>
+
+    </Container>
   );
 }

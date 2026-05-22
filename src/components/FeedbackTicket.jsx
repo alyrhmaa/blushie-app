@@ -1,7 +1,9 @@
 export default function FeedbackTicket({
-  customer,
-  message,
-  status,
+  name,
+  category,
+  date,
+  comment,
+  rating,
 }) {
   return (
     <div className="
@@ -12,26 +14,32 @@ export default function FeedbackTicket({
       shadow-sm
     ">
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-start">
 
-        <h3 className="font-semibold">
-          {customer}
-        </h3>
+        <div>
+          <h3 className="font-semibold text-lg">
+            {name}
+          </h3>
+
+          <p className="text-xs text-gray-400 mt-1">
+            {category} • {date}
+          </p>
+        </div>
 
         <span className="
-          text-xs
-          bg-green-100
-          text-green-600
+          bg-yellow-100
+          text-yellow-600
           px-3 py-1
           rounded-xl
+          text-xs font-bold
         ">
-          {status}
+          ⭐ {rating}
         </span>
 
       </div>
 
-      <p className="text-sm text-gray-500 mt-3">
-        {message}
+      <p className="text-sm text-gray-500 mt-4">
+        {comment}
       </p>
 
     </div>
