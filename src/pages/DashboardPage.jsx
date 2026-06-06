@@ -1,9 +1,4 @@
-import {
-  Search,
-  Bell,
-  Settings,
-  MoreHorizontal,
-} from "lucide-react";
+import { Search, Bell, Settings, MoreHorizontal } from "lucide-react";
 
 import {
   LineChart,
@@ -16,9 +11,9 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function DashboardPage() {
-
   // ===== DATA =====
   const salesTrend = [
     { time: "6 AM", value: 50 },
@@ -99,24 +94,19 @@ export default function DashboardPage() {
 
   return (
     <div className="bg-[#F5F6FA] min-h-screen">
-
       {/* ===== TOPBAR ===== */}
       <div className="flex items-center justify-between mb-8">
-
         {/* TITLE */}
         <div>
           <h1 className="text-[32px] font-bold text-[#111827]">
             Welcome to Papi Coffee ☕
           </h1>
 
-          <p className="text-gray-400 mt-1">
-            Start your day with a smile
-          </p>
+          <p className="text-gray-400 mt-1">Start your day with a smile</p>
         </div>
 
         {/* ACTIONS */}
         <div className="flex items-center gap-4">
-
           {/* SEARCH */}
           <div className="hidden md:flex items-center bg-white px-4 h-12 rounded-2xl border border-gray-100 w-[240px]">
             <Search size={18} className="text-gray-400" />
@@ -136,40 +126,28 @@ export default function DashboardPage() {
           <button className="w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-gray-500">
             <Settings size={18} />
           </button>
-
         </div>
       </div>
 
       {/* ===== MAIN GRID ===== */}
       <div className="grid grid-cols-12 gap-6">
-
         {/* ===== LEFT SIDEBAR CARD ===== */}
         <div className="col-span-12 xl:col-span-3">
-
           <div className="bg-white rounded-[32px] p-6 h-full shadow-sm">
-
             {/* PROFILE */}
             <div className="w-20 h-20 rounded-[28px] bg-[#5B6CFF] flex items-center justify-center text-white text-5xl font-bold mb-5">
               C
             </div>
 
-            <p className="text-gray-400 text-sm">
-              Welcome,
-            </p>
+            <p className="text-gray-400 text-sm">Welcome,</p>
 
-            <h2 className="text-[32px] font-bold mb-10">
-              CRAFTUI
-            </h2>
+            <h2 className="text-[32px] font-bold mb-10">CRAFTUI</h2>
 
             {/* EVENTS */}
             <div>
-
-              <h3 className="font-semibold mb-5">
-                Upcoming events
-              </h3>
+              <h3 className="font-semibold mb-5">Upcoming events</h3>
 
               <div className="space-y-4">
-
                 {[
                   {
                     color: "bg-blue-500",
@@ -194,228 +172,169 @@ export default function DashboardPage() {
                     key={i}
                     className="border border-gray-100 rounded-3xl p-4"
                   >
-
                     <div className="flex justify-between">
-
                       <div
                         className={`w-2 h-2 rounded-full mt-2 ${event.color}`}
                       />
 
-                      <MoreHorizontal
-                        size={16}
-                        className="text-gray-400"
-                      />
+                      <MoreHorizontal size={16} className="text-gray-400" />
                     </div>
 
-                    <p className="text-xs text-[#5B6CFF] mt-2">
-                      {event.time}
-                    </p>
+                    <p className="text-xs text-[#5B6CFF] mt-2">{event.time}</p>
 
                     <h4 className="font-semibold text-sm mt-1">
                       {event.title}
                     </h4>
 
-                    <p className="text-xs text-gray-400 mt-1">
-                      {event.desc}
-                    </p>
-
+                    <p className="text-xs text-gray-400 mt-1">{event.desc}</p>
                   </div>
                 ))}
-
               </div>
             </div>
 
             {/* CONVERSION */}
             <div className="mt-8 border border-gray-100 rounded-3xl p-4">
-
               <div className="flex justify-between mb-5">
-
                 <div>
-                  <h4 className="font-semibold text-sm">
-                    Conversion history
-                  </h4>
+                  <h4 className="font-semibold text-sm">Conversion history</h4>
 
                   <p className="text-xs text-gray-400">
                     Week to week performance
                   </p>
                 </div>
 
-                <div className="text-gray-400">
-                  ◫
-                </div>
+                <div className="text-gray-400">◫</div>
               </div>
 
               <div className="flex items-end gap-2 h-24">
-
-                {[40, 70, 45, 80, 55, 72, 60, 75].map(
-                  (h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-[#5B6CFF] rounded-full"
-                      style={{ height: `${h}%` }}
-                    />
-                  )
-                )}
-
+                {[40, 70, 45, 80, 55, 72, 60, 75].map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 bg-[#5B6CFF] rounded-full"
+                    style={{ height: `${h}%` }}
+                  />
+                ))}
               </div>
             </div>
-
           </div>
         </div>
 
         {/* ===== RIGHT CONTENT ===== */}
         <div className="col-span-12 xl:col-span-9 space-y-6">
+          
+          {/* ===== SHADCN TABS ===== */}
+          <Tabs defaultValue="sales">
+            <TabsList className="bg-white rounded-2xl p-1 shadow-sm">
+              <TabsTrigger value="sales">Sales</TabsTrigger>
+
+              <TabsTrigger value="members">Members</TabsTrigger>
+
+              <TabsTrigger value="orders">Orders</TabsTrigger>
+            </TabsList>
+          </Tabs>
 
           {/* ===== STATS ===== */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-
             {/* CARD 1 */}
             <div className="bg-white rounded-[28px] p-5 shadow-sm">
               <div className="flex justify-between items-start">
-
                 <div>
-                  <p className="text-gray-400 text-sm">
-                    Today's Revenue
-                  </p>
+                  <p className="text-gray-400 text-sm">Today's Revenue</p>
 
-                  <h2 className="text-3xl font-bold mt-1">
-                    $1,845
-                  </h2>
+                  <h2 className="text-3xl font-bold mt-1">$1,845</h2>
 
-                  <p className="text-green-500 text-sm mt-1">
-                    ↑ 12.5%
-                  </p>
+                  <p className="text-green-500 text-sm mt-1">↑ 12.5%</p>
                 </div>
 
                 <div className="flex items-end gap-1 h-12">
-                  {[10, 20, 30, 40, 35, 45, 20].map(
-                    (h, i) => (
-                      <div
-                        key={i}
-                        className="w-2 bg-[#5B6CFF] rounded-full"
-                        style={{ height: `${h}px` }}
-                      />
-                    )
-                  )}
+                  {[10, 20, 30, 40, 35, 45, 20].map((h, i) => (
+                    <div
+                      key={i}
+                      className="w-2 bg-[#5B6CFF] rounded-full"
+                      style={{ height: `${h}px` }}
+                    />
+                  ))}
                 </div>
-
               </div>
             </div>
 
             {/* CARD 2 */}
             <div className="bg-white rounded-[28px] p-5 shadow-sm">
               <div className="flex justify-between items-start">
-
                 <div>
-                  <p className="text-gray-400 text-sm">
-                    Orders Today
-                  </p>
+                  <p className="text-gray-400 text-sm">Orders Today</p>
 
-                  <h2 className="text-3xl font-bold mt-1">
-                    156
-                  </h2>
+                  <h2 className="text-3xl font-bold mt-1">156</h2>
 
-                  <p className="text-green-500 text-sm mt-1">
-                    ↑ 8.3%
-                  </p>
+                  <p className="text-green-500 text-sm mt-1">↑ 8.3%</p>
                 </div>
 
                 <div className="flex items-end gap-1 h-12">
-                  {[15, 25, 18, 40, 45, 35, 22].map(
-                    (h, i) => (
-                      <div
-                        key={i}
-                        className="w-2 bg-[#5B6CFF] rounded-full"
-                        style={{ height: `${h}px` }}
-                      />
-                    )
-                  )}
+                  {[15, 25, 18, 40, 45, 35, 22].map((h, i) => (
+                    <div
+                      key={i}
+                      className="w-2 bg-[#5B6CFF] rounded-full"
+                      style={{ height: `${h}px` }}
+                    />
+                  ))}
                 </div>
-
               </div>
             </div>
 
             {/* CARD 3 */}
             <div className="bg-white rounded-[28px] p-5 shadow-sm">
               <div className="flex justify-between items-start">
-
                 <div>
-                  <p className="text-gray-400 text-sm">
-                    Active Members
-                  </p>
+                  <p className="text-gray-400 text-sm">Active Members</p>
 
-                  <h2 className="text-3xl font-bold mt-1">
-                    1,234
-                  </h2>
+                  <h2 className="text-3xl font-bold mt-1">1,234</h2>
 
-                  <p className="text-green-500 text-sm mt-1">
-                    ↑ 15.7%
-                  </p>
+                  <p className="text-green-500 text-sm mt-1">↑ 15.7%</p>
                 </div>
 
                 <div className="flex items-end gap-1 h-12">
-                  {[12, 18, 28, 38, 48, 40, 18].map(
-                    (h, i) => (
-                      <div
-                        key={i}
-                        className="w-2 bg-[#5B6CFF] rounded-full"
-                        style={{ height: `${h}px` }}
-                      />
-                    )
-                  )}
+                  {[12, 18, 28, 38, 48, 40, 18].map((h, i) => (
+                    <div
+                      key={i}
+                      className="w-2 bg-[#5B6CFF] rounded-full"
+                      style={{ height: `${h}px` }}
+                    />
+                  ))}
                 </div>
-
               </div>
             </div>
 
             {/* CARD 4 */}
             <div className="bg-white rounded-[28px] p-5 shadow-sm">
               <div className="flex justify-between items-start">
-
                 <div>
-                  <p className="text-gray-400 text-sm">
-                    Orders in Queue
-                  </p>
+                  <p className="text-gray-400 text-sm">Orders in Queue</p>
 
-                  <h2 className="text-3xl font-bold mt-1">
-                    6
-                  </h2>
+                  <h2 className="text-3xl font-bold mt-1">6</h2>
 
-                  <p className="text-orange-500 text-sm mt-1">
-                    Avg wait: 4.2m
-                  </p>
+                  <p className="text-orange-500 text-sm mt-1">Avg wait: 4.2m</p>
                 </div>
 
                 <div className="flex items-end gap-1 h-12">
-                  {[15, 15, 20, 40, 48, 45, 18].map(
-                    (h, i) => (
-                      <div
-                        key={i}
-                        className={`w-2 rounded-full ${
-                          i === 3
-                            ? "bg-pink-400"
-                            : "bg-[#5B6CFF]"
-                        }`}
-                        style={{ height: `${h}px` }}
-                      />
-                    )
-                  )}
+                  {[15, 15, 20, 40, 48, 45, 18].map((h, i) => (
+                    <div
+                      key={i}
+                      className={`w-2 rounded-full ${
+                        i === 3 ? "bg-pink-400" : "bg-[#5B6CFF]"
+                      }`}
+                      style={{ height: `${h}px` }}
+                    />
+                  ))}
                 </div>
-
               </div>
             </div>
-
           </div>
 
           {/* ===== CHART + TOP PRODUCT ===== */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-
             {/* SALES TREND */}
             <div className="bg-white p-6 rounded-[32px] shadow-sm">
-
-              <h2 className="font-bold text-lg mb-6">
-                Today's Sales Trend
-              </h2>
+              <h2 className="font-bold text-lg mb-6">Today's Sales Trend</h2>
 
               <ResponsiveContainer width="100%" height={280}>
                 <LineChart data={salesTrend}>
@@ -432,62 +351,39 @@ export default function DashboardPage() {
                   />
                 </LineChart>
               </ResponsiveContainer>
-
             </div>
 
             {/* TOP PRODUCT */}
             <div className="bg-white p-6 rounded-[32px] shadow-sm">
-
-              <h2 className="font-bold text-lg mb-6">
-                Top Products Today
-              </h2>
+              <h2 className="font-bold text-lg mb-6">Top Products Today</h2>
 
               <div className="space-y-5">
-
                 {topProducts.map((p, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between items-center"
-                  >
-
+                  <div key={i} className="flex justify-between items-center">
                     <div>
                       <p className="font-semibold">
                         {i + 1}. {p.name}
                       </p>
 
-                      <p className="text-sm text-gray-400">
-                        {p.sold} sold
-                      </p>
+                      <p className="text-sm text-gray-400">{p.sold} sold</p>
                     </div>
 
                     <div className="text-right">
+                      <p className="font-semibold">{p.revenue}</p>
 
-                      <p className="font-semibold">
-                        {p.revenue}
-                      </p>
-
-                      <p className="text-green-500 text-sm">
-                        {p.growth}
-                      </p>
-
+                      <p className="text-green-500 text-sm">{p.growth}</p>
                     </div>
                   </div>
                 ))}
-
               </div>
             </div>
-
           </div>
 
           {/* ===== BOTTOM GRID ===== */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-
             {/* WEEKLY CHART */}
             <div className="bg-white p-6 rounded-[32px] shadow-sm">
-
-              <h2 className="font-bold text-lg mb-6">
-                This Week vs Last Week
-              </h2>
+              <h2 className="font-bold text-lg mb-6">This Week vs Last Week</h2>
 
               <ResponsiveContainer width="100%" height={280}>
                 <BarChart data={weeklyCompare}>
@@ -509,42 +405,24 @@ export default function DashboardPage() {
                   />
                 </BarChart>
               </ResponsiveContainer>
-
             </div>
 
             {/* RECENT ORDER */}
             <div className="bg-white p-6 rounded-[32px] shadow-sm">
-
-              <h2 className="font-bold text-lg mb-6">
-                Recent Orders
-              </h2>
+              <h2 className="font-bold text-lg mb-6">Recent Orders</h2>
 
               <div className="space-y-5">
-
                 {orders.map((o, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between items-center"
-                  >
-
+                  <div key={i} className="flex justify-between items-center">
                     <div>
+                      <p className="font-semibold">{o.id}</p>
 
-                      <p className="font-semibold">
-                        {o.id}
-                      </p>
+                      <p className="text-sm text-gray-400">{o.name}</p>
 
-                      <p className="text-sm text-gray-400">
-                        {o.name}
-                      </p>
-
-                      <p className="text-sm">
-                        {o.detail}
-                      </p>
-
+                      <p className="text-sm">{o.detail}</p>
                     </div>
 
                     <div className="text-right">
-
                       <span
                         className={`text-sm px-3 py-1 rounded-full ${
                           o.status === "completed"
@@ -555,20 +433,15 @@ export default function DashboardPage() {
                         {o.status}
                       </span>
 
-                      <p className="text-xs text-gray-400 mt-1">
-                        {o.time}
-                      </p>
-
+                      <p className="text-xs text-gray-400 mt-1">{o.time}</p>
                     </div>
                   </div>
                 ))}
-
               </div>
 
               <button className="mt-6 bg-[#5B6CFF] text-white px-5 py-3 rounded-2xl text-sm font-medium">
                 View All Orders
               </button>
-
             </div>
           </div>
         </div>
