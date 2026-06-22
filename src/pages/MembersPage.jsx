@@ -1,5 +1,3 @@
-// src/pages/MembersPage.jsx
-
 import { useState } from "react";
 import members from "../data/members.json";
 

@@ -1,61 +1,100 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
+
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Loading from "./components/Loading";
 
-// Lazy Pages
+// AUTH
+const Login = lazy(() => import("./pages/LoginPage"));
+const Register = lazy(() => import("./pages/RegisterPage"));
+
+// USER MANAGEMENT
+const Users = lazy(() => import("./pages/UsersPage"));
+
+// MAIN PAGES
 const Dashboard = lazy(() => import("./pages/DashboardPage"));
 const Members = lazy(() => import("./pages/MembersPage"));
 const Orders = lazy(() => import("./pages/OrdersPage"));
+const OrderDetail = lazy(() => import("./pages/OrderDetail"));
+
+const Customers = lazy(() => import("./pages/Customers"));
+const CustomerDetail = lazy(() => import("./pages/CustomerDetail"));
+
+const Products = lazy(() => import("./pages/Products"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+
 const Loyalty = lazy(() => import("./pages/LoyaltyPage"));
 const Segmentation = lazy(() => import("./pages/SegmentationPage"));
 const Campaigns = lazy(() => import("./pages/CampaignsPage"));
-const ProductDetail = lazy(() => import("./pages/ProductDetail"));
-const Products = lazy(() => import("./pages/Products"));
-const Customers = lazy(() => import("./pages/Customers"));
-const CustomerDetail = lazy(() => import("./pages/CustomerDetail"));
 const Queue = lazy(() => import("./pages/QueuePage"));
 const Feedback = lazy(() => import("./pages/FeedbackPage"));
 const Analytics = lazy(() => import("./pages/AnalyticsPage"));
-const Login = lazy(() => import("./pages/LoginPage"));
 
 export default function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
 
-        {/* 🔥 REDIRECT ROOT */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        {/* ROOT */}
+        <Route
+          path="/"
+          element={<Navigate to="/login" replace />}
+        />
 
-      {/* AUTH LAYOUT */}
-<Route element={<AuthLayout />}>
-  <Route path="/login" element={<Login />} />
-</Route>
+        {/* AUTH */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
 
-{/* MAIN LAYOUT */}
-<Route element={<MainLayout />}>
+        {/* MAIN APP */}
+        <Route element={<MainLayout />}>
 
-  <Route path="/dashboard" element={<Dashboard />} />
-  <Route path="/members" element={<Members />} />
-  <Route path="/orders" element={<Orders />} />
-  <Route path="/customers" element={<Customers />} />
-  <Route path="/customers/:id" element={<CustomerDetail />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
+          {/* USER CRUD */}
+          <Route path="/users" element={<Users />} />
 
-  <Route path="/products" element={<Products />} />
-  <Route path="/products/:id" element={<ProductDetail />} />
+          {/* MEMBERS */}
+          <Route path="/members" element={<Members />} />
 
-  <Route path="/loyalty" element={<Loyalty />} />
-  <Route path="/segmentation" element={<Segmentation />} />
-  <Route path="/campaigns" element={<Campaigns />} />
-  <Route path="/queue" element={<Queue />} />
-  <Route path="/feedback" element={<Feedback />} />
-  <Route path="/analytics" element={<Analytics />} />
+          {/* ORDERS */}
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
 
-</Route>
-        {/* ❗ FALLBACK (ANTI ERROR URL) */}
-        <Route path="*" element={<Navigate to="/login" />} />
+          {/* CUSTOMERS */}
+          <Route path="/customers" element={<Customers />} />
+          <Route
+            path="/customers/:id"
+            element={<CustomerDetail />}
+          />
+
+          {/* PRODUCTS */}
+          <Route path="/products" element={<Products />} />
+          <Route
+            path="/products/:id"
+            element={<ProductDetail />}
+          />
+
+          {/* OTHER PAGES */}
+          <Route path="/loyalty" element={<Loyalty />} />
+          <Route
+            path="/segmentation"
+            element={<Segmentation />}
+          />
+          <Route path="/campaigns" element={<Campaigns />} />
+          <Route path="/queue" element={<Queue />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/analytics" element={<Analytics />} />
+
+        </Route>
+
+        {/* FALLBACK */}
+        <Route
+          path="*"
+          element={<Navigate to="/login" replace />}
+        />
 
       </Routes>
     </Suspense>

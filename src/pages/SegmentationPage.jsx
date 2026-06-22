@@ -1,5 +1,3 @@
-// src/pages/SegmentationPage.jsx
-
 import members from "../data/members.json";
 
 import Card from "../components/Card";

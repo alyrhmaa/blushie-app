@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import data from "../data/Customers.json";
@@ -10,6 +10,7 @@ import Table from "../components/Table";
 import SearchInput from "../components/SearchInput";
 import LoyaltyBadge from "../components/LoyaltyBadge";
 import Avatar from "../components/Avatar";
+
 import {
   Dialog,
   DialogContent,
@@ -21,10 +22,13 @@ import {
 export default function Customers() {
   const [search, setSearch] = useState("");
 
+  // useRef
+  const nameInputRef = useRef(null);
+
   const headers = ["ID", "Customer", "Email", "Phone", "Status"];
 
   const filtered = data.customers.filter((c) =>
-    c.customer_name.toLowerCase().includes(search.toLowerCase()),
+    c.customer_name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -33,7 +37,9 @@ export default function Customers() {
         <div>
           <h1 className="text-3xl font-bold">Customers</h1>
 
-          <p className="text-gray-400 mt-1">Home / Customers</p>
+          <p className="text-gray-400 mt-1">
+            Home / Customers
+          </p>
         </div>
 
         <Dialog>
@@ -43,13 +49,20 @@ export default function Customers() {
             </Button>
           </DialogTrigger>
 
-          <DialogContent>
+          <DialogContent
+            onOpenAutoFocus={(e) => {
+              e.preventDefault();
+              nameInputRef.current?.focus();
+            }}
+          >
             <DialogHeader>
               <DialogTitle>Add Customer</DialogTitle>
             </DialogHeader>
 
             <div className="space-y-3 mt-4">
+
               <input
+                ref={nameInputRef}
                 type="text"
                 placeholder="Customer Name"
                 className="w-full border rounded-xl p-3"
@@ -70,6 +83,7 @@ export default function Customers() {
               <button className="w-full bg-orange-500 text-white py-3 rounded-xl">
                 Save Customer
               </button>
+
             </div>
           </DialogContent>
         </Dialog>
@@ -87,11 +101,15 @@ export default function Customers() {
         <Table headers={headers}>
           {filtered.map((item) => (
             <tr key={item.customer_id}>
-              <td className="px-4 py-4">#{item.customer_id}</td>
+              <td className="px-4 py-4">
+                #{item.customer_id}
+              </td>
 
               <td className="px-4 py-4">
                 <div className="flex items-center gap-3">
-                  <Avatar name={item.customer_name} />
+                  <Avatar
+                    name={item.customer_name}
+                  />
 
                   <Link
                     to={`/customers/${item.customer_id}`}
@@ -102,12 +120,18 @@ export default function Customers() {
                 </div>
               </td>
 
-              <td className="px-4 py-4">{item.email}</td>
-
-              <td className="px-4 py-4">{item.phone}</td>
+              <td className="px-4 py-4">
+                {item.email}
+              </td>
 
               <td className="px-4 py-4">
-                <LoyaltyBadge tier={item.loyalty} />
+                {item.phone}
+              </td>
+
+              <td className="px-4 py-4">
+                <LoyaltyBadge
+                  tier={item.loyalty}
+                />
               </td>
             </tr>
           ))}

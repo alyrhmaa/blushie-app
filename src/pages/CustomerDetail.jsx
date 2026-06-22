@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 import data from "../data/Customers.json";
@@ -11,9 +12,31 @@ export default function CustomerDetail() {
 
   const { id } = useParams();
 
+  const [lastViewed, setLastViewed] = useState("");
+
+  const prevIdRef = useRef(null);
+
+
+  const visitCountRef = useRef(0);
+
   const customer = data.customers.find(
     (item) => item.customer_id == id
   );
+
+  useEffect(() => {
+    const currentTime = new Date().toLocaleString("id-ID");
+    setLastViewed(currentTime);
+
+    if (prevIdRef.current !== id) {
+      visitCountRef.current += 1;
+      console.log(
+        `Customer ke-${visitCountRef.current} yang dibuka: ID ${id}`
+      );
+    }
+
+    prevIdRef.current = id;
+
+  }, [id]);
 
   if (!customer) {
     return (
@@ -45,6 +68,11 @@ export default function CustomerDetail() {
               Customer ID: {customer.customer_id}
             </p>
 
+            {/* HASIL useEffect */}
+            <p className="text-xs text-blue-500 mt-1">
+              Last Viewed: {lastViewed}
+            </p>
+
           </div>
         </div>
 
@@ -70,9 +98,9 @@ export default function CustomerDetail() {
               Loyalty:
             </span>
 
-           <LoyaltyBadge
-            tier={customer.loyalty}
-          />
+            <LoyaltyBadge
+              tier={customer.loyalty}
+            />
 
           </div>
 

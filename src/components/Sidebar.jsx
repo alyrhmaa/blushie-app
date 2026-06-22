@@ -22,6 +22,7 @@ export default function Sidebar() {
     { icon: Users, label: "Members", path: "/members" },
     { icon: ClipboardList, label: "Orders", path: "/orders" },
     { icon: Users, label: "Customers", path: "/customers" },
+    { icon: Users, label: "Users", path: "/users" },
     { icon: Package, label: "Products", path: "/products" },
 
     { icon: Gift, label: "Loyalty", path: "/loyalty" },

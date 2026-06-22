@@ -1,5 +1,3 @@
-// src/pages/LoyaltyPage.jsx
-
 import members from "../data/members.json";
 
 import Button from "../components/Button";
