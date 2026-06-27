@@ -4,6 +4,7 @@ import { Suspense, lazy } from "react";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Loading from "./components/Loading";
+import LandingPage from "./pages/LandingPage";
 
 // AUTH
 const Login = lazy(() => import("./pages/LoginPage"));
@@ -36,10 +37,10 @@ export default function App() {
     <Suspense fallback={<Loading />}>
       <Routes>
 
-        {/* ROOT */}
+        {/* LANDING PAGE */}
         <Route
           path="/"
-          element={<Navigate to="/login" replace />}
+          element={<LandingPage />}
         />
 
         {/* AUTH */}
@@ -50,7 +51,8 @@ export default function App() {
 
         {/* MAIN APP */}
         <Route element={<MainLayout />}>
-
+          
+          {/* DASHBOARD */}
           <Route path="/dashboard" element={<Dashboard />} />
 
           {/* USER CRUD */}
@@ -77,7 +79,7 @@ export default function App() {
             element={<ProductDetail />}
           />
 
-          {/* OTHER PAGES */}
+          {/* CRM FEATURES */}
           <Route path="/loyalty" element={<Loyalty />} />
           <Route
             path="/segmentation"
@@ -93,7 +95,7 @@ export default function App() {
         {/* FALLBACK */}
         <Route
           path="*"
-          element={<Navigate to="/login" replace />}
+          element={<Navigate to="/" replace />}
         />
 
       </Routes>
