@@ -23,7 +23,7 @@ export default function Sidebar() {
     { icon: ClipboardList, label: "Orders", path: "/orders" },
     { icon: Users, label: "Customers", path: "/customers" },
     { icon: Users, label: "Users", path: "/users" },
-    { icon: Package, label: "Products", path: "/products" },
+
 
     { icon: Gift, label: "Loyalty", path: "/loyalty" },
     { icon: PieChart, label: "Segmentation", path: "/segmentation" },
@@ -42,32 +42,29 @@ export default function Sidebar() {
       </div>
 
       {/* MENU */}
-      <div className="flex flex-col gap-3">
+<div className="flex flex-col gap-3 flex-1 w-full overflow-y-auto no-scrollbar items-center">
+  {menus.map((item, i) => {
+    const Icon = item.icon;
+    const isActive =
+      location.pathname === item.path ||
+      location.pathname.startsWith(item.path + "/");
 
-        {menus.map((item, i) => {
-          const Icon = item.icon;
-
-          const isActive =
-            location.pathname === item.path ||
-            location.pathname.startsWith(item.path + "/");
-
-          return (
-            <button
-              key={i}
-              onClick={() => navigate(item.path)}
-              className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-200
-              ${
-                isActive
-                  ? "bg-[#EEF1FF] text-[#5B6CFF]"
-                  : "text-gray-400 hover:bg-gray-100 hover:text-[#5B6CFF]"
-              }`}
-            >
-              <Icon size={19} />
-            </button>
-          );
-        })}
-
-      </div>
+    return (
+      <button
+        key={i}
+        onClick={() => navigate(item.path)}
+        className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-200 shrink-0
+        ${
+          isActive
+            ? "bg-[#EEF1FF] text-[#5B6CFF]"
+            : "text-gray-400 hover:bg-gray-100 hover:text-[#5B6CFF]"
+        }`}
+      >
+        <Icon size={19} />
+      </button>
+    );
+  })}
+</div>
     </div>
   );
 }

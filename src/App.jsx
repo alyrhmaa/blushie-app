@@ -22,8 +22,7 @@ const OrderDetail = lazy(() => import("./pages/OrderDetail"));
 const Customers = lazy(() => import("./pages/Customers"));
 const CustomerDetail = lazy(() => import("./pages/CustomerDetail"));
 
-const Products = lazy(() => import("./pages/Products"));
-const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+
 
 const Loyalty = lazy(() => import("./pages/LoyaltyPage"));
 const Segmentation = lazy(() => import("./pages/SegmentationPage"));
@@ -72,12 +71,7 @@ export default function App() {
             element={<CustomerDetail />}
           />
 
-          {/* PRODUCTS */}
-          <Route path="/products" element={<Products />} />
-          <Route
-            path="/products/:id"
-            element={<ProductDetail />}
-          />
+        
 
           {/* CRM FEATURES */}
           <Route path="/loyalty" element={<Loyalty />} />
